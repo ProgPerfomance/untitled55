@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:untitled55/view/my_trips/photo/photo.page.dart';
 import 'package:untitled55/view/my_trips/trip.detail.page.dart';
 import 'package:untitled55/view/my_trips/trip.model.dart';
 
@@ -14,7 +15,17 @@ class MyTripController extends GetxController {
   List<TripModel> closed = List.generate(10, (index) => TripModel(index: index + 1, status: TripStatus.closed));
 
   onTripClick(TripModel trip) {
-    if (trip.status == TripStatus.active) Navigator.of(Get.context!).push(MaterialPageRoute(builder: (context) => TripDetailsPage(data: trip)));
+    switch (trip.status) {
+      case TripStatus.avaliable:
+        Get.to(() => const PhotoPage());
+        break;
+      case TripStatus.active:
+        Get.to(() => TripDetailsPage(data: trip));
+        break;
+      case TripStatus.closed:
+        // TODO: Handle this case.
+        break;
+    }
   }
 
   onChangeTripPage(int index) {
