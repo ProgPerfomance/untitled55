@@ -68,4 +68,6 @@ class MyTripController extends GetxController {
     Get.back();
     Get.to(() => const TripInfoPage());
   }
+
+  onRequestMoneyTap() {}
 }

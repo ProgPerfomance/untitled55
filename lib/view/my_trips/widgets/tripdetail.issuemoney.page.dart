@@ -2,6 +2,8 @@ import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:untitled55/view/global_widgets/buttons.widget.dart';
+import 'package:untitled55/view/my_trips/trip.controller.dart';
 import 'package:untitled55/view/my_trips/trip.model.dart';
 
 class TripDetailIssueMoneyPage extends StatelessWidget {
@@ -10,6 +12,7 @@ class TripDetailIssueMoneyPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var controller = Get.find<MyTripController>();
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -536,19 +539,8 @@ class TripDetailIssueMoneyPage extends StatelessWidget {
               color: Color(0xFF202329),
               borderRadius: BorderRadius.only(topLeft: Radius.circular(17), topRight: Radius.circular(17)),
             ),
-            child: Container(
-              height: 44,
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-              margin: const EdgeInsets.all(16),
-              clipBehavior: Clip.antiAlias,
-              decoration: ShapeDecoration(
-                gradient: const LinearGradient(
-                  begin: Alignment(1.00, -0.02),
-                  end: Alignment(-1, 0.02),
-                  colors: [Color(0xFF2550EB), Color(0xFF2897FF)],
-                ),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-              ),
+            child: BlueButton(
+              onTap: controller.onRequestMoneyTap,
               child: Text(
                 'Request money',
                 textAlign: TextAlign.center,
