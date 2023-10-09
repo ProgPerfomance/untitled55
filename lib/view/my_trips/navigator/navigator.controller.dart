@@ -4,9 +4,13 @@ import 'package:untitled55/view/my_trips/trip.model.dart';
 
 class NavigatorController extends GetxController {
   late TripModel trip;
+  final Function onGo;
+
   MapController mapController = MapController(
     initPosition: GeoPoint(latitude: 47.4358055, longitude: 8.4737324),
   );
+
+  NavigatorController({required this.onGo});
 
   @override
   void onInit() {
@@ -20,5 +24,7 @@ class NavigatorController extends GetxController {
     super.onClose();
   }
 
-  onGoClick() {}
+  onGoClick() {
+    onGo();
+  }
 }

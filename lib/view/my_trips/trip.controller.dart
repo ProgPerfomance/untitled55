@@ -44,7 +44,7 @@ class MyTripController extends GetxController {
   }
 
   openNavigatorFor(TripModel data) {
-    Get.to(() => const NavigatorPage(), arguments: data);
+    Get.to(() => NavigatorPage(onGo: () {}), arguments: data);
   }
 
   void onTripCheckinTap(TripModel data) {

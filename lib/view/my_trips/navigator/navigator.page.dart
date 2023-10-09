@@ -6,10 +6,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:untitled55/view/my_trips/navigator/navigator.controller.dart';
 
 class NavigatorPage extends GetView<NavigatorController> {
-  const NavigatorPage({super.key});
+  final Function onGo;
+  const NavigatorPage({super.key, required this.onGo});
   @override
   Widget build(BuildContext context) {
-    Get.put(NavigatorController());
+    Get.put(NavigatorController(onGo: onGo));
     return SafeArea(
       child: Material(
         child: Stack(
