@@ -39,6 +39,7 @@ dependencies:
   camera: ^0.10.5+5
   syncfusion_flutter_sliders: ^23.1.39
   awesome_extensions:
+  table_calendar: ^3.0.9
   google_fonts:
   flutter_svg:
   provider:
