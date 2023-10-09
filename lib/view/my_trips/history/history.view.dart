@@ -126,70 +126,73 @@ class HistoryView extends GetView<HistoryContoller> {
   }
 
   buildLine(int index) {
-    return Container(
-      padding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
-      margin: const EdgeInsets.only(top: 4, bottom: 4),
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(16), color: const Color(0x14FCFCFC)),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            width: 40,
-            height: 40,
-            clipBehavior: Clip.antiAlias,
-            decoration: ShapeDecoration(
-              color: const Color(0x14FCFCFC),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
+    return GestureDetector(
+      onTap: controller.showHistoryDetail,
+      child: Container(
+        padding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
+        margin: const EdgeInsets.only(top: 4, bottom: 4),
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(16), color: const Color(0x14FCFCFC)),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              width: 40,
+              height: 40,
+              clipBehavior: Clip.antiAlias,
+              decoration: ShapeDecoration(
+                color: const Color(0x14FCFCFC),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+              child: Image.asset("assets/images/user.png"),
+            ),
+            12.widthBox,
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Lumper',
+                    style: GoogleFonts.dmSans(color: const Color(0xFFD0D0D0), fontSize: 14, fontWeight: FontWeight.w500),
+                  ),
+                  Text(
+                    'Andrey Bozhenko, 20 Jun 2021',
+                    style: GoogleFonts.dmSans(color: const Color(0x75FCFCFC), fontSize: 14, fontWeight: FontWeight.w400),
+                  ),
+                ],
               ),
             ),
-            child: Image.asset("assets/images/user.png"),
-          ),
-          12.widthBox,
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                Text(
-                  'Lumper',
-                  style: GoogleFonts.dmSans(color: const Color(0xFFD0D0D0), fontSize: 14, fontWeight: FontWeight.w500),
+                Text.rich(
+                  TextSpan(
+                    children: [
+                      TextSpan(
+                        text: '+',
+                        style: GoogleFonts.dmSans(color: const Color(0xFFD0D0D0), fontSize: 14, fontWeight: FontWeight.w500),
+                      ),
+                      TextSpan(
+                        text: '\$',
+                        style: GoogleFonts.dmSans(color: const Color(0x75FCFCFC), fontSize: 14, fontWeight: FontWeight.w500),
+                      ),
+                      TextSpan(
+                        text: '36',
+                        style: GoogleFonts.dmSans(color: const Color(0xFFD0D0D0), fontSize: 14, fontWeight: FontWeight.w500),
+                      ),
+                    ],
+                  ),
                 ),
                 Text(
-                  'Andrey Bozhenko, 20 Jun 2021',
+                  'Trip #${index + 1}',
                   style: GoogleFonts.dmSans(color: const Color(0x75FCFCFC), fontSize: 14, fontWeight: FontWeight.w400),
                 ),
               ],
-            ),
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Text.rich(
-                TextSpan(
-                  children: [
-                    TextSpan(
-                      text: '+',
-                      style: GoogleFonts.dmSans(color: const Color(0xFFD0D0D0), fontSize: 14, fontWeight: FontWeight.w500),
-                    ),
-                    TextSpan(
-                      text: '\$',
-                      style: GoogleFonts.dmSans(color: const Color(0x75FCFCFC), fontSize: 14, fontWeight: FontWeight.w500),
-                    ),
-                    TextSpan(
-                      text: '36',
-                      style: GoogleFonts.dmSans(color: const Color(0xFFD0D0D0), fontSize: 14, fontWeight: FontWeight.w500),
-                    ),
-                  ],
-                ),
-              ),
-              Text(
-                'Trip #${index + 1}',
-                style: GoogleFonts.dmSans(color: const Color(0x75FCFCFC), fontSize: 14, fontWeight: FontWeight.w400),
-              ),
-            ],
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }

@@ -6,4 +6,7 @@ class HistoryContoller extends GetxController {
   void onFilterTap() {
     log("onFilterTap");
   }
+
+  void showHistoryDetail() {
+  }
 }
