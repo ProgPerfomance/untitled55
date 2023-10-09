@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:untitled55/models.dart';
 import 'package:untitled55/view/Account/AccountScreen.dart';
+import 'package:untitled55/view/Account/InviteUsers.dart';
 import 'package:untitled55/view/Home/HomeScreen.dart';
 import 'package:untitled55/view/Settlement/SettlementScreen.dart';
 import 'package:untitled55/view/auth/auth.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
       ],
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        home: const HomeScreen(),
+        home: const InviteUsers(),
         routes: {
           'profile': (context) => const AccountScreen(),
           'home': (context) => const HomeScreen(),
