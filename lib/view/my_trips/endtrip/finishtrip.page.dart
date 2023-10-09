@@ -44,10 +44,7 @@ class FinishTripPage extends GetView<FinishTripController> {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  Container(
-                    height: 1,
-                    color: const Color(0xFFFCFCFC).withOpacity(.08),
-                  ),
+                  Container(height: 1, color: const Color(0xFFFCFCFC).withOpacity(.08)),
                   const SizedBox(height: 16),
                   GestureDetector(
                     onTap: controller.onEndTripTap,
