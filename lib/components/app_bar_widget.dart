@@ -4,7 +4,8 @@ import 'package:awesome_extensions/awesome_extensions.dart';
 
 class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   final List<Widget> actions;
-  const AppBarWidget({Key? key, this.actions = const []}) : super(key: key);
+  final bool showActions;
+  const AppBarWidget({Key? key, this.actions = const [], this.showActions = true}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -54,34 +55,36 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
                           ),
                         ],
                       ),
-                      Row(
-                        children: [
-                          Container(
-                            height: 40,
-                            width: 40,
-                            decoration: BoxDecoration(
-                              color: const Color(0xffFCFCFC).withOpacity(0.08),
-                              borderRadius: BorderRadius.circular(12),
+                      if (!showActions) const SizedBox(width: 40, height: 40),
+                      if (showActions)
+                        Row(
+                          children: [
+                            Container(
+                              height: 40,
+                              width: 40,
+                              decoration: BoxDecoration(
+                                color: const Color(0xffFCFCFC).withOpacity(0.08),
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              child: Center(
+                                child: Image.asset('assets/images/Search.png'),
+                              ),
                             ),
-                            child: Center(
-                              child: Image.asset('assets/images/Search.png'),
+                            8.widthBox,
+                            Container(
+                              height: 40,
+                              width: 40,
+                              decoration: BoxDecoration(
+                                color: const Color(0xffFCFCFC).withOpacity(0.08),
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              child: Center(
+                                child: Image.asset('assets/images/NotificationWhite.png'),
+                              ),
                             ),
-                          ),
-                          8.widthBox,
-                          Container(
-                            height: 40,
-                            width: 40,
-                            decoration: BoxDecoration(
-                              color: const Color(0xffFCFCFC).withOpacity(0.08),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            child: Center(
-                              child: Image.asset('assets/images/NotificationWhite.png'),
-                            ),
-                          ),
-                          ...actions,
-                        ],
-                      ),
+                            ...actions,
+                          ],
+                        ),
                     ],
                   ),
                 ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:untitled55/view/my_trips/tripinfo/addphoto/addphoto.page.dart';
 
 class TripInfoController extends GetxController {
   RxBool cycleContSelector = false.obs;
@@ -33,5 +34,6 @@ class TripInfoController extends GetxController {
   }
 
   void onAddPhotoTap() {
+    Get.to(() => const AddPhotoPage());
   }
 }
