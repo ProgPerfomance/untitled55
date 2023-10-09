@@ -11,6 +11,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: const Color(0xff202329),
+      elevation: 0,
       actions: [
         Column(
           children: [

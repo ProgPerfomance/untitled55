@@ -18,6 +18,7 @@ class DispacherFeedbackPage extends GetView<DispacherFeedbackController> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            const SizedBox(height: 3),
             Expanded(
               child: SingleChildScrollView(
                 child: Container(
