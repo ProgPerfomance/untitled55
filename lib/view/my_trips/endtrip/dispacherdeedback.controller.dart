@@ -1,8 +1,13 @@
 import 'package:get/get.dart';
 
-class DispacherFeedbackController extends GetxController {  onConfirmTap() {
-  }
+class DispacherFeedbackController extends GetxController {
+  RxInt starCount = 5.obs;
 
-  onSendReview() {
+  onConfirmTap() {}
+
+  onSendReview() {}
+
+  setStar(int index) {
+    starCount.value = index + 1;
   }
 }

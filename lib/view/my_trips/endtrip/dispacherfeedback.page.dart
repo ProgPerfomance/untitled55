@@ -87,6 +87,66 @@ class DispacherFeedbackPage extends GetView<DispacherFeedbackController> {
                           ],
                         ),
                       ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Revie',
+                            style: GoogleFonts.dmSans(color: const Color(0x75FCFCFC), fontSize: 12, fontWeight: FontWeight.w500),
+                          ),
+                          Obx(
+                            () => Text(
+                              '${controller.starCount}/10',
+                              style: GoogleFonts.dmSans(color: const Color(0x75FCFCFC), fontSize: 12, fontWeight: FontWeight.w500),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: List.generate(
+                            10,
+                            (index) => GestureDetector(
+                              onTap: () => controller.setStar(index),
+                              child: Obx(
+                                () => Icon(
+                                  Icons.star,
+                                  size: 28,
+                                  color: index < controller.starCount.value ? const Color(0xF2563EBF) : const Color(0xFFFCFCFC).withOpacity(.14),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 16),
+                        child: TextField(
+                          style: GoogleFonts.dmSans(color: const Color(0xFFFCFCFC), fontSize: 12, fontWeight: FontWeight.w500),
+                          minLines: 2,
+                          maxLines: 2,
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                              borderSide: const BorderSide(width: 1, color: Color(0x75FCFCFC)),
+                              borderRadius: BorderRadius.circular(6),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(width: 1, color: Color(0x75FCFCFC)),
+                              borderRadius: BorderRadius.circular(6),
+                            ),
+                            disabledBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(width: 1, color: Color(0x75FCFCFC)),
+                              borderRadius: BorderRadius.circular(6),
+                            ),
+                            floatingLabelBehavior: FloatingLabelBehavior.always,
+                            label: Text("Note", style: GoogleFonts.dmSans(color: const Color(0x75FCFCFC), fontSize: 12, fontWeight: FontWeight.w500)),
+                            hintStyle: GoogleFonts.dmSans(color: const Color(0xFFD0D0D0), fontSize: 14, fontWeight: FontWeight.w400),
+                            hintText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed",
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
