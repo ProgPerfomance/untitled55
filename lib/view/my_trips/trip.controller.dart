@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:untitled55/view/my_trips/endtrip/dispacherfeedback.page.dart';
 import 'package:untitled55/view/moneycode/SelectCategoryBottomSheet/SelectCategoryBottomSheet.dart';
 import 'package:untitled55/view/moneycode/WriteMoneyScreen.dart';
+import 'package:untitled55/view/my_trips/history/history.view.dart';
 import 'package:untitled55/view/my_trips/navigator/navigator.page.dart';
 import 'package:untitled55/view/my_trips/photo/photo.page.dart';
 import 'package:untitled55/view/my_trips/trip.detail.page.dart';
@@ -94,5 +95,9 @@ class MyTripController extends GetxController {
 
   onSelectCategoryTap() {
     Get.to(() => const WriteMoneyScreen());
+  }
+
+  void onHistoryTap() {
+    Get.to(() => const HistoryView());
   }
 }

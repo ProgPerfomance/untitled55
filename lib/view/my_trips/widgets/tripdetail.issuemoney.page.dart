@@ -454,9 +454,12 @@ class TripDetailIssueMoneyPage extends StatelessWidget {
                       'History',
                       style: GoogleFonts.dmSans(color: const Color(0xFFD0D0D0), fontSize: 14, fontWeight: FontWeight.w400),
                     ),
-                    Text(
-                      'See more',
-                      style: GoogleFonts.dmSans(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w400),
+                    GestureDetector(
+                      onTap: controller.onHistoryTap,
+                      child: Text(
+                        'See more',
+                        style: GoogleFonts.dmSans(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w400),
+                      ),
                     ),
                   ],
                 ),
