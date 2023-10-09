@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:untitled55/view/moneycode/RequestInSendScreen.dart';
 import 'package:untitled55/view/my_trips/endtrip/dispacherfeedback.page.dart';
 import 'package:untitled55/view/moneycode/SelectCategoryBottomSheet/SelectCategoryBottomSheet.dart';
 import 'package:untitled55/view/moneycode/WriteMoneyScreen.dart';
@@ -94,5 +95,8 @@ class MyTripController extends GetxController {
 
   onSelectCategoryTap() {
     Get.to(() => const WriteMoneyScreen());
+  }
+  onWriteMoneyTap() {
+    Get.to(() => const RequestInSendScreen());
   }
 }
