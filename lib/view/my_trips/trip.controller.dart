@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:untitled55/view/my_trips/photo/photo.page.dart';
 import 'package:untitled55/view/my_trips/trip.detail.page.dart';
 import 'package:untitled55/view/my_trips/trip.model.dart';
+import 'package:untitled55/view/my_trips/tripinfo/tripinfo.page.dart';
 import 'package:untitled55/view/my_trips/widgets/checkin.dialog.dart';
 import 'package:untitled55/view/my_trips/widgets/checkincontinue.dialog.dart';
 import 'package:untitled55/view/my_trips/widgets/chekinconfirm.dialog.dart';
@@ -64,5 +65,6 @@ class MyTripController extends GetxController {
 
   sendInfoToDispatche() {
     Get.back();
+    Get.to(() => const TripInfoPage());
   }
 }
