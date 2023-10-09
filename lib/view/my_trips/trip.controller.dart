@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:untitled55/view/my_trips/endtrip/dispacherfeedback.page.dart';
+import 'package:untitled55/view/moneycode/SelectCategoryBottomSheet/SelectCategoryBottomSheet.dart';
+import 'package:untitled55/view/moneycode/WriteMoneyScreen.dart';
 import 'package:untitled55/view/my_trips/navigator/navigator.page.dart';
 import 'package:untitled55/view/my_trips/photo/photo.page.dart';
 import 'package:untitled55/view/my_trips/trip.detail.page.dart';
@@ -76,8 +78,6 @@ class MyTripController extends GetxController {
     Get.to(() => const TripInfoPage());
   }
 
-  onRequestMoneyTap() {}
-
   onEndTripTap(TripModel trip) {
     Get.to(
       () => PhotoPage(
@@ -86,5 +86,13 @@ class MyTripController extends GetxController {
         ),
       ),
     );
+  }
+
+  onRequestMoneyTap() {
+    Get.bottomSheet(const SelectCategoryBottomSheet());
+  }
+
+  onSelectCategoryTap() {
+    Get.to(() => const WriteMoneyScreen());
   }
 }
