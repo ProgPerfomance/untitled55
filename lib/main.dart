@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       ],
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        home: const InviteUsers(),
+        home: const HomeScreen(),
         routes: {
           'profile': (context) => const AccountScreen(),
           'home': (context) => const HomeScreen(),
