@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:awesome_extensions/awesome_extensions.dart';
 
@@ -17,18 +18,18 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
           children: [
             Container(
               height: 5,
-              width: context.width - 8,
+              width: Get.width - 8,
               decoration: const BoxDecoration(
                 color: Color(0xff202329),
               ),
             ),
             Container(
               height: 1,
-              width: context.width - 8,
+              width: Get.width - 8,
               color: const Color(0xffffffff).withOpacity(0.2),
             ),
             Container(
-              width: context.width - 8,
+              width: Get.width - 8,
               decoration: const BoxDecoration(
                 color: Color(0xff202329),
                 // borderRadius: BorderRadius.only(
@@ -46,15 +47,18 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Row(
-                        children: [
-                          Image.asset('assets/images/back.png'),
-                          3.widthBox,
-                          Text(
-                            'Back',
-                            style: GoogleFonts.dmSans(fontSize: 14, color: const Color(0xffD0D0D0)),
-                          ),
-                        ],
+                      GestureDetector(
+                        onTap: Get.back,
+                        child: Row(
+                          children: [
+                            Image.asset('assets/images/back.png'),
+                            3.widthBox,
+                            Text(
+                              'Back',
+                              style: GoogleFonts.dmSans(fontSize: 14, color: const Color(0xffD0D0D0)),
+                            ),
+                          ],
+                        ),
                       ),
                       if (!showActions) const SizedBox(width: 40, height: 40),
                       if (showActions)
