@@ -46,15 +46,17 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Row(
-                        children: [
-                          Image.asset('assets/images/back.png'),
-                          3.widthBox,
-                          Text(
-                            'Back',
-                            style: GoogleFonts.dmSans(fontSize: 14, color: const Color(0xffD0D0D0)),
-                          ),
-                        ],
+                      GestureDetector(
+                        child: Row(
+                          children: [
+                            Image.asset('assets/images/back.png'),
+                            3.widthBox,
+                            Text(
+                              'Back',
+                              style: GoogleFonts.dmSans(fontSize: 14, color: const Color(0xffD0D0D0)),
+                            ),
+                          ],
+                        ),
                       ),
                       if (!showActions) const SizedBox(width: 40, height: 40),
                       if (showActions)
