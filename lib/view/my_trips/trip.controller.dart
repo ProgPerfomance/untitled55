@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:untitled55/view/my_trips/endtrip/dispacherfeedback.page.dart';
 import 'package:untitled55/view/my_trips/navigator/navigator.page.dart';
 import 'package:untitled55/view/my_trips/photo/photo.page.dart';
 import 'package:untitled55/view/my_trips/trip.detail.page.dart';
@@ -22,7 +23,7 @@ class MyTripController extends GetxController {
   onTripClick(TripModel trip) {
     switch (trip.status) {
       case TripStatus.avaliable:
-        Get.to(() => const PhotoPage());
+        Get.to(() => PhotoPage(onComplete: () {}));
         break;
       case TripStatus.active:
         Get.to(() => TripDetailsPage(data: trip));
@@ -44,7 +45,13 @@ class MyTripController extends GetxController {
   }
 
   openNavigatorFor(TripModel data) {
-    Get.to(() => NavigatorPage(onGo: () {}), arguments: data);
+    Get.to(
+        () => NavigatorPage(
+              onGo: () {
+                Get.to(() => TripDetailsPage(data: TripModel(index: 555, status: TripStatus.closed)));
+              },
+            ),
+        arguments: data);
   }
 
   void onTripCheckinTap(TripModel data) {
@@ -70,4 +77,14 @@ class MyTripController extends GetxController {
   }
 
   onRequestMoneyTap() {}
+
+  onEndTripTap(TripModel trip) {
+    Get.to(
+      () => PhotoPage(
+        onComplete: () => Get.to(
+          () => const DispacherFeedbackPage(),
+        ),
+      ),
+    );
+  }
 }

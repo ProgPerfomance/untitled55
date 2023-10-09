@@ -2,6 +2,7 @@ import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:untitled55/view/global_widgets/buttons.widget.dart';
 import 'package:untitled55/view/my_trips/trip.controller.dart';
 import 'package:untitled55/view/my_trips/trip.model.dart';
 
@@ -18,26 +19,27 @@ class TripDetailTrackingPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           20.heightBox,
-          Container(
-            height: 28,
-            padding: const EdgeInsets.symmetric(vertical: 4),
-            margin: const EdgeInsets.only(left: 16, right: 16),
-            decoration: ShapeDecoration(
-              color: const Color(0x14D7BD32),
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(13)),
+          if (trip.status != TripStatus.closed)
+            Container(
+              height: 28,
+              padding: const EdgeInsets.symmetric(vertical: 4),
+              margin: const EdgeInsets.only(left: 16, right: 16),
+              decoration: ShapeDecoration(
+                color: const Color(0x14D7BD32),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(13)),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    'Pick Up',
+                    style: GoogleFonts.dmSans(color: const Color(0xFFD7BC31), fontSize: 14, fontWeight: FontWeight.w400),
+                  ),
+                ],
+              ),
             ),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  'Pick Up',
-                  style: GoogleFonts.dmSans(color: const Color(0xFFD7BC31), fontSize: 14, fontWeight: FontWeight.w400),
-                ),
-              ],
-            ),
-          ),
           Expanded(
             child: ListView(
               itemExtent: 56,
@@ -53,18 +55,10 @@ class TripDetailTrackingPage extends StatelessWidget {
                         width: 32,
                         height: 32,
                         decoration: ShapeDecoration(
-                          color: index == 0 ? const Color(0xFFFB923C) : const Color(0xFF32343A),
+                          color: const Color(0xFF18B630),
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.33)),
                         ),
-                        child: index == 0
-                            ? const Padding(
-                                padding: EdgeInsets.all(8.0),
-                                child: CircularProgressIndicator(
-                                  strokeWidth: 2,
-                                  valueColor: AlwaysStoppedAnimation(Colors.white),
-                                ),
-                              )
-                            : Icon(Icons.place, color: const Color(0xFFFCFCFC).withOpacity(.46), size: 16),
+                        child: const Icon(Icons.check, color: Colors.white, size: 16),
                       ),
                       if (index != 14) Container(width: 3, height: 12, color: const Color(0xFF32343A)),
                     ],
@@ -89,34 +83,24 @@ class TripDetailTrackingPage extends StatelessWidget {
               ),
             ),
           ),
-          GestureDetector(
-            onTap: () => controller.onTripCheckinTap(trip),
-            child: Container(
-              decoration: BoxDecoration(
-                color: const Color(0xFFFCFCFC).withOpacity(0.08),
-                borderRadius: const BorderRadius.only(topLeft: Radius.circular(17), topRight: Radius.circular(17)),
-              ),
-              child: Container(
-                height: 44,
-                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                margin: const EdgeInsets.all(16),
-                clipBehavior: Clip.antiAlias,
-                decoration: ShapeDecoration(
-                  gradient: const LinearGradient(
-                    begin: Alignment(1.00, -0.02),
-                    end: Alignment(-1, 0.02),
-                    colors: [Color(0xFF2550EB), Color(0xFF2897FF)],
-                  ),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-                ),
-                child: Text(
-                  'Check In',
-                  textAlign: TextAlign.center,
-                  style: GoogleFonts.dmSans(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w500),
-                ),
+          if (trip.status != TripStatus.closed)
+            BlueButton(
+              onTap: () => controller.onTripCheckinTap(trip),
+              child: Text(
+                'Check In',
+                textAlign: TextAlign.center,
+                style: GoogleFonts.dmSans(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w500),
               ),
             ),
-          ),
+          if (trip.status == TripStatus.closed)
+            BlueButton(
+              onTap: () => controller.onEndTripTap(trip),
+              child: Text(
+                'End trip',
+                textAlign: TextAlign.center,
+                style: GoogleFonts.dmSans(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w500),
+              ),
+            ),
         ],
       ),
     );

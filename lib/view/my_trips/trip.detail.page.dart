@@ -58,26 +58,53 @@ class TripDetailsPage extends GetView<MyTripController> {
                     Container(
                       padding: const EdgeInsets.all(16.0),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
-                            'Trip #${data.index}',
-                            style: GoogleFonts.dmSans(fontSize: 14, color: const Color(0xffD0D0D0)),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Trip #${data.index}',
+                                style: GoogleFonts.dmSans(fontSize: 14, color: const Color(0xffD0D0D0)),
+                              ),
+                              16.widthBox,
+                              Image.asset("assets/images/TruckIcon.png"),
+                              4.widthBox,
+                              Text(
+                                '44',
+                                style: GoogleFonts.dmSans(color: const Color(0x75FCFCFC), fontSize: 14, fontWeight: FontWeight.w400),
+                              ),
+                              8.widthBox,
+                              Image.asset("assets/images/TrailerIcon.png"),
+                              4.widthBox,
+                              Text(
+                                '36',
+                                style: GoogleFonts.dmSans(color: const Color(0x75FCFCFC), fontSize: 14, fontWeight: FontWeight.w400),
+                              ),
+                            ],
                           ),
-                          16.widthBox,
-                          Image.asset("assets/images/TruckIcon.png"),
-                          4.widthBox,
-                          Text(
-                            '44',
-                            style: GoogleFonts.dmSans(color: const Color(0x75FCFCFC), fontSize: 14, fontWeight: FontWeight.w400),
-                          ),
-                          8.widthBox,
-                          Image.asset("assets/images/TrailerIcon.png"),
-                          4.widthBox,
-                          Text(
-                            '36',
-                            style: GoogleFonts.dmSans(color: const Color(0x75FCFCFC), fontSize: 14, fontWeight: FontWeight.w400),
-                          ),
+                          if (data.status == TripStatus.closed)
+                            Container(
+                              height: 28,
+                              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+                              decoration: ShapeDecoration(
+                                color: const Color(0x16EF4444),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(13),
+                                ),
+                              ),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'Trip is over',
+                                    style: GoogleFonts.dmSans(color: const Color(0xFFEF4444), fontSize: 14, fontWeight: FontWeight.w400),
+                                  ),
+                                ],
+                              ),
+                            )
                         ],
                       ),
                     ),

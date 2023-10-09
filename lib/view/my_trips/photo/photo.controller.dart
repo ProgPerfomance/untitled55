@@ -4,11 +4,14 @@ import 'package:camera/camera.dart';
 import 'package:get/get.dart';
 
 class PhotoController extends GetxController {
+  final Function onComplete;
   RxBool isLightningOn = false.obs;
   Rx<CameraController?> cameraController = Rx(null);
   Rx<CameraDescription?> frontCam = Rx(null);
   CameraDescription? backCam;
   bool isBackCam = true;
+
+  PhotoController({required this.onComplete});
 
   @override
   void onInit() async {
@@ -88,6 +91,7 @@ class PhotoController extends GetxController {
     if (photo != null) {
       log(photo.path);
       Get.back();
+      onComplete();
     }
   }
 

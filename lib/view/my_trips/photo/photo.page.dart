@@ -6,11 +6,12 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:untitled55/view/my_trips/photo/photo.controller.dart';
 
 class PhotoPage extends GetView<PhotoController> {
-  const PhotoPage({super.key});
+  final Function onComplete;
+  const PhotoPage({super.key, required this.onComplete});
 
   @override
   Widget build(BuildContext context) {
-    Get.put(PhotoController());
+    Get.put(PhotoController(onComplete: onComplete));
     return SafeArea(
       child: Scaffold(
         backgroundColor: const Color(0xff121418),
