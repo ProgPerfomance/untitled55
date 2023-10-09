@@ -90,7 +90,7 @@ class FinishTripPage extends GetView<FinishTripController> {
                   ),
                   const SizedBox(height: 16),
                   GestureDetector(
-                    onTap: controller.onEndTripTap,
+                    onTap: controller.onRequestLoadTap,
                     child: Container(
                       padding: const EdgeInsets.all(12),
                       decoration: BoxDecoration(
