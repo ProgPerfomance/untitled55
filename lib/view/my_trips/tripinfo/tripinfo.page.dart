@@ -44,31 +44,34 @@ class TripInfoPage extends GetView<TripInfoController> {
                         textAlign: TextAlign.start,
                       ),
                       const SizedBox(height: 16),
-                      Container(
-                        height: 52,
-                        padding: const EdgeInsets.all(16),
-                        decoration: ShapeDecoration(
-                          color: const Color(0x14FCFCFC),
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-                          shadows: const [BoxShadow(color: Color(0x26000000), blurRadius: 7, offset: Offset(1, 1), spreadRadius: 0)],
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Icon(Icons.image_outlined, color: const Color(0xFFFCFCFC).withOpacity(.46)),
-                                const SizedBox(width: 6),
-                                Text(
-                                  'Add Photo',
-                                  style: GoogleFonts.dmSans(color: const Color(0xFFFCFCFC), fontSize: 14, fontWeight: FontWeight.w400),
-                                ),
-                              ],
-                            ),
-                            Icon(Icons.arrow_forward_ios, color: const Color(0xFFFCFCFC).withOpacity(.75)),
-                          ],
+                      GestureDetector(
+                        onTap: controller.onAddPhotoTap,
+                        child: Container(
+                          height: 52,
+                          padding: const EdgeInsets.all(16),
+                          decoration: ShapeDecoration(
+                            color: const Color(0x14FCFCFC),
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                            shadows: const [BoxShadow(color: Color(0x26000000), blurRadius: 7, offset: Offset(1, 1), spreadRadius: 0)],
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Icon(Icons.image_outlined, color: const Color(0xFFFCFCFC).withOpacity(.46)),
+                                  const SizedBox(width: 6),
+                                  Text(
+                                    'Add Photo',
+                                    style: GoogleFonts.dmSans(color: const Color(0xFFFCFCFC), fontSize: 14, fontWeight: FontWeight.w400),
+                                  ),
+                                ],
+                              ),
+                              Icon(Icons.arrow_forward_ios, color: const Color(0xFFFCFCFC).withOpacity(.75)),
+                            ],
+                          ),
                         ),
                       ),
                       Padding(

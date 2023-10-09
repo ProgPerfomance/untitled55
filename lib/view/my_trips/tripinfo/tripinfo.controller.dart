@@ -31,4 +31,7 @@ class TripInfoController extends GetxController {
     temperature.value = value.round();
     temperatureText.text = temperature.value.toString();
   }
+
+  void onAddPhotoTap() {
+  }
 }
