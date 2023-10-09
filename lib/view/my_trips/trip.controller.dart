@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:untitled55/view/moneycode/SelectCategoryBottomSheet/SelectCategoryBottomSheet.dart';
+import 'package:untitled55/view/moneycode/WriteMoneyScreen.dart';
 import 'package:untitled55/view/my_trips/navigator/navigator.page.dart';
 import 'package:untitled55/view/my_trips/photo/photo.page.dart';
 import 'package:untitled55/view/my_trips/trip.detail.page.dart';
@@ -69,5 +71,10 @@ class MyTripController extends GetxController {
     Get.to(() => const TripInfoPage());
   }
 
-  onRequestMoneyTap() {}
+  onRequestMoneyTap() {
+    Get.bottomSheet(SelectCategoryBottomSheet());
+  }
+  onSelectCategoryTap() {
+    Get.to(() => WriteMoneyScreen());
+  }
 }
