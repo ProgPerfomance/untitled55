@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:untitled55/view/my_trips/navigator/navigator.page.dart';
 import 'package:untitled55/view/my_trips/photo/photo.page.dart';
 import 'package:untitled55/view/my_trips/trip.detail.page.dart';
 import 'package:untitled55/view/my_trips/trip.model.dart';
@@ -43,7 +44,7 @@ class MyTripController extends GetxController {
   }
 
   openNavigatorFor(TripModel data) {
-    Get.toNamed("/navigator", arguments: data);
+    Get.to(() => const NavigatorPage(), arguments: data);
   }
 
   void onTripCheckinTap(TripModel data) {

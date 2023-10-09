@@ -9,7 +9,6 @@ import 'package:untitled55/view/auth/auth.dart';
 import 'package:untitled55/view/chat/chat_screen.dart';
 import 'package:untitled55/view/chat/groups_chats.dart';
 import 'package:untitled55/view/chats/view/chats_screen.dart';
-import 'package:untitled55/view/my_trips/navigator/navigator.page.dart';
 import 'package:untitled55/view/my_trips/new_trip_screen.dart';
 import 'package:untitled55/view/news/NewsScreen.dart';
 import 'package:untitled55/view/news/OpenNewsScreen.dart';
@@ -39,7 +38,6 @@ class MyApp extends StatelessWidget {
           '/auth': (context) => const AuthScreen(),
           '/group_chat': (context) => const GroupsChatScreen(),
           '/mytrips': (context) => const NewTripScreen(),
-          "/navigator": (context) => const NavigatorPage(),
         },
       ),
     );
