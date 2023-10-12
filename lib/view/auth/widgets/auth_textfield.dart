@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:untitled55/domain/AuthUserFromLogin.dart';
 
 import '../../../ui/text_style.dart';
 
+TextEditingController passwordController = TextEditingController();
+TextEditingController emailController = TextEditingController();
 class AuthTextField extends StatefulWidget {
   const AuthTextField({super.key});
 
@@ -21,6 +25,11 @@ class _AuthTextFieldState extends State<AuthTextField> {
           width: width * 0.95,
           height: height * 0.06,
           child: TextField(
+            style: TextStyle(color: Color(0xffffffff)),
+            controller: emailController,
+            onChanged: (value) {
+              context.read<AuthUserFromLogin>().login = emailController.text;
+            },
             decoration: InputDecoration(
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(
@@ -45,6 +54,11 @@ class _AuthTextFieldState extends State<AuthTextField> {
           width: width * 0.95,
           height: height * 0.06,
           child: TextField(
+            style: TextStyle(color: Color(0xffffffff)),
+            controller: passwordController,
+            onChanged: (value) {
+              context.read<AuthUserFromLogin>().password = passwordController.text;
+            },
             obscureText: active,
             decoration: InputDecoration(
                 border: OutlineInputBorder(

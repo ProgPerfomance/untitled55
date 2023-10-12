@@ -17,16 +17,16 @@ class _RequestInSendScreenState extends State<RequestInSendScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff121418),
+      backgroundColor: const Color(0xff121418),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 4.0),
+        padding: const EdgeInsets.symmetric(horizontal: 4.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Column(
               children: [
-                CustomAppBar(),
-                SizedBox(
+                const CustomAppBar(),
+                const SizedBox(
                   height: 3,
                 ),
                 Container(
@@ -34,7 +34,7 @@ class _RequestInSendScreenState extends State<RequestInSendScreen> {
                   height: context.height / 1.4,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12),
-                      color: Color(0xff202329)),
+                      color: const Color(0xff202329)),
                   child: Column(
                     children: [
                       Container(
@@ -42,7 +42,7 @@ class _RequestInSendScreenState extends State<RequestInSendScreen> {
                         width: context.width - 48,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(16),
-                          color: Color(0xffFCFCFC).withOpacity(0.08),
+                          color: const Color(0xffFCFCFC).withOpacity(0.08),
                         ),
                         child: Image.asset(
                           'assets/images/newrequest.png',
@@ -50,14 +50,14 @@ class _RequestInSendScreenState extends State<RequestInSendScreen> {
                           width: 100,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       Center(
                         child: Text(
                           'Request is send',
                           style: GoogleFonts.dmSans(
-                              fontSize: 24, color: Color(0xffD0D0D0)),
+                              fontSize: 24, color: const Color(0xffD0D0D0)),
                         ),
                       ),
                       Center(
@@ -65,7 +65,7 @@ class _RequestInSendScreenState extends State<RequestInSendScreen> {
                           'Within 60 minutes the dispatcher will contact you\nregarding your request',
                           textAlign: TextAlign.center,
                           style: GoogleFonts.dmSans(
-                              color: Color(0xffFCFCFC).withOpacity(0.46)),
+                              color: const Color(0xffFCFCFC).withOpacity(0.46)),
                         ),
                       )
                     ],
@@ -76,7 +76,7 @@ class _RequestInSendScreenState extends State<RequestInSendScreen> {
             Container(
               height: 90,
               width: context.width - 8,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(12),
                     topRight: Radius.circular(12),
@@ -95,15 +95,15 @@ class _RequestInSendScreenState extends State<RequestInSendScreen> {
                     margin: const EdgeInsets.all(16),
                     clipBehavior: Clip.antiAlias,
                     decoration: ShapeDecoration(
-                      gradient: LinearGradient(
-                          begin: const Alignment(1.00, -0.02),
-                          end: const Alignment(-1, 0.02),
+                      gradient: const LinearGradient(
+                          begin: Alignment(1.00, -0.02),
+                          end: Alignment(-1, 0.02),
                           colors:
-                          [ const Color(0xFF2897FF),const Color(0xFF2550EB),]
+                          [ Color(0xFF2897FF),Color(0xFF2550EB),]
                       ),
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                     ),
-                    child: Center(child: Text('Back to trip', style: GoogleFonts.dmSans(color: Color(0xffffffff)),)),
+                    child: Center(child: Text('Back to trip', style: GoogleFonts.dmSans(color: const Color(0xffffffff)),)),
                   ),
                 ),
               ),

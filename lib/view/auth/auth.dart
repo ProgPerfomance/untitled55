@@ -21,7 +21,7 @@ class _AuthScreenState extends State<AuthScreen> {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: const Color(0xff121418),
       body: SingleChildScrollView(
         child: Center(
           child: Column(
@@ -29,7 +29,7 @@ class _AuthScreenState extends State<AuthScreen> {
               SizedBox(
                 height: height * 0.15,
               ),
-              Image.asset(logo, scale: 4),
+              Image.asset(logo),
               SizedBox(
                 height: height * 0.05,
               ),
