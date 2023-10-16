@@ -56,17 +56,6 @@ class _AppBarAndNotificationsState extends State<AppBarAndNotifications> {
               ),
               Row(
                 children: [
-                  Container(
-                    height: 40,
-                    width: 40,
-                    decoration: BoxDecoration(
-                      color: const Color(0xffFCFCFC).withOpacity(0.08),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Center(
-                      child: Image.asset('assets/images/Search.png'),
-                    ),
-                  ),
                   8.widthBox,
                   Container(
                     height: 40,

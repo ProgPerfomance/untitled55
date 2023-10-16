@@ -9,12 +9,13 @@ class AuthUserFromLogin extends ChangeNotifier {
   var accessToken;
  // var token =
   Future<void> authUserFromLogin() async {
-    final response = await dio.post('https://stage.tgateway.vohha.com/mobile/auth/login', data: {
+    final response = await dio.post('https://stage.tgateway.vohha.com/mobile/driver/login', data: {
       "login": login,
       "password": password,
     });
   //  print(response.data);
     accessToken = response.data['accessToken'];
+    print(response.data);
     print(accessToken);
     notifyListeners();
   }

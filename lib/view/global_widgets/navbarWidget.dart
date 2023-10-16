@@ -92,15 +92,6 @@ class NavBarWidget extends StatelessWidget {
               ),
             ),
           ),
-          Container(
-            height: 55,
-            width: 70,
-            decoration: BoxDecoration(
-              color: const Color(0xff202329),
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: Center(child: Image.asset('assets/images/buttonplus.png')),
-          ),
         ],
       ),
     );

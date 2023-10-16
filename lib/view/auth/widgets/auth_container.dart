@@ -17,9 +17,9 @@ class AuthContainer extends StatelessWidget {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     return InkWell(
-      onTap: ()  {
-        context.read<AuthUserFromLogin>().authUserFromLogin();
-        context.read<GetUserInfo>().setToken(context.read<AuthUserFromLogin>().accessToken);
+      onTap: () async  {
+     await   context.read<AuthUserFromLogin>().authUserFromLogin();
+        context.read<GetUserInfo>().setToken(await context.read<AuthUserFromLogin>().accessToken);
         context.read<GetUserInfo>().getUserInfo();
         Navigator.push(context, MaterialPageRoute(builder: (context) => LoadingScreen()));},
       child: Container(

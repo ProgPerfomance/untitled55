@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class TwoBlock extends StatelessWidget {
-  const TwoBlock({super.key});
+  final vehiclename;
+  const TwoBlock({super.key, required this.vehiclename});
 
   @override
   Widget build(BuildContext context) {
@@ -85,7 +86,7 @@ class TwoBlock extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    'Volvo FMXXD 63j',
+                    vehiclename,
                     style: GoogleFonts.dmSans(
                       fontSize: 16,
                       color: const Color(0xffD0D0D0),

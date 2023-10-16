@@ -1,7 +1,10 @@
 import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'package:untitled55/domain/GetUserInfo.dart';
 import 'package:untitled55/view/Account/widgets/2block.dart';
 import 'package:untitled55/view/global_widgets/navbarWidget.dart';
 import 'package:untitled55/view/user/UserScreen.dart';
@@ -18,6 +21,7 @@ class AccountScreen extends StatefulWidget {
 class _AccountScreenState extends State<AccountScreen> {
   @override
   Widget build(BuildContext context) {
+    final watchUserModel = context.watch<GetUserInfo>();
     return Scaffold(
       backgroundColor: const Color(0xff121418),
       body: Padding(
@@ -78,7 +82,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     ),
                     Image.asset('assets/images/iconaccount.png'),
                     Text(
-                      'Abdula Azis',
+                      watchUserModel.name,
                       style: GoogleFonts.dmSans(
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
@@ -106,61 +110,45 @@ class _AccountScreenState extends State<AccountScreen> {
                       height: 5,
                     ),
                     Text(
-                      'Erichbachman@piedpiper.com',
+                      watchUserModel.email,
                       style: GoogleFonts.dmSans(color: const Color(0xffffffff).withOpacity(0.5)),
                     ),
                     const SizedBox(
                       height: 15,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          height: 20,
-                          width: 47,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(4),
-                            border: Border.all(color: Colors.white.withOpacity(0.08)),
-                            color: const Color(0xffFCFCFC).withOpacity(0.08),
-                          ),
-                          child: Center(
-                            child: Text(
-                              'Team 1',
-                              style: GoogleFonts.inter(
-                                fontSize: 10,
-                                color: Colors.white,
+                    Padding(
+                      padding:  EdgeInsets.symmetric(horizontal: context.width / 3),
+                      child: SizedBox(height: 30,
+                        child: ListView.builder(itemBuilder: (context, index) {
+                          return  Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 2.0),
+                            child: Container(
+                              height: 20,
+                              width: 47,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(4),
+                                border: Border.all(color: Colors.white.withOpacity(0.08)),
+                                color: const Color(0xffFCFCFC).withOpacity(0.08),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  watchUserModel.teams[index]['name'],
+                                  style: GoogleFonts.inter(
+                                    fontSize: 10,
+                                    color: Colors.white,
+                                  ),
+                                ),
                               ),
                             ),
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 3,
-                        ),
-                        Container(
-                          height: 20,
-                          width: 47,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(4),
-                            border: Border.all(color: Colors.white.withOpacity(0.08)),
-                            color: const Color(0xffFCFCFC).withOpacity(0.08),
-                          ),
-                          child: Center(
-                            child: Text(
-                              'Team 3',
-                              style: GoogleFonts.inter(
-                                fontSize: 10,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        )
-                      ],
+                          );
+                        }, itemCount: watchUserModel.teams.length, scrollDirection: Axis.horizontal,),
+                      ),
                     ),
                   ],
                 ),
               ),
               3.heightBox,
-              const TwoBlock(),
+              TwoBlock(vehiclename: watchUserModel.vehicleName,),
               4.heightBox,
               Container(
                 height: 52,

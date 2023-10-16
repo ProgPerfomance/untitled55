@@ -31,8 +31,8 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: const AuthScreen(),
         routes: {
-          'profile': (context) => const AccountScreen(),
-          'home': (context) => const HomeScreen(),
+          '/profile': (context) => const AccountScreen(),
+          '/home': (context) => const HomeScreen(),
           '/chats': (context) => const ChatsScreen(),
           '/chat': (context) => const ChatScreen(),
           '/auth': (context) => const AuthScreen(),

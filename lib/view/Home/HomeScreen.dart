@@ -1,6 +1,8 @@
 import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'package:untitled55/domain/GetUserInfo.dart';
 import 'package:untitled55/view/Account/AccountScreen.dart';
 import 'package:untitled55/view/Settlement/SettlementScreen.dart';
 import 'package:untitled55/view/chats/view/chats_screen.dart';
@@ -69,17 +71,6 @@ class HomeScreen extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      Container(
-                        height: 40,
-                        width: 40,
-                        decoration: BoxDecoration(
-                          color: const Color(0xffFCFCFC).withOpacity(0.08),
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: Center(
-                          child: Image.asset('assets/images/Search.png'),
-                        ),
-                      ),
                       8.widthBox,
                       Container(
                         height: 40,
@@ -140,7 +131,7 @@ class HomeScreen extends StatelessWidget {
                                       ),
                                     ),
                                     Text(
-                                      'Abdula Azis',
+                                      context.watch<GetUserInfo>().name,
                                       style: GoogleFonts.dmSans(
                                         fontSize: 16,
                                         color: const Color(0xffD0D0D0),
@@ -161,47 +152,6 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 4.widthBox,
-                // InkWell(
-                //   onTap: () {
-                //     Navigator.push(context, MaterialPageRoute(builder: (context) => const RatingScreen()));
-                //   },
-                //   child: Container(
-                //     width: 111,
-                //     height: 72,
-                //     decoration: BoxDecoration(
-                //       borderRadius: BorderRadius.circular(12),
-                //       color: const Color(0xff202329),
-                //     ),
-                //     child: Padding(
-                //       padding: const EdgeInsets.all(16.0),
-                //       child: Row(
-                //         children: [
-                //           Image.asset('assets/images/rating.png'),
-                //           4.widthBox,
-                //           Column(
-                //             children: [
-                //               Text(
-                //                 'Rating',
-                //                 style: GoogleFonts.dmSans(
-                //                   fontSize: 12,
-                //                   color:
-                //                       const Color(0xffFCFCFC).withOpacity(0.46),
-                //                 ),
-                //               ),
-                //               Text(
-                //                 '9.23',
-                //                 style: GoogleFonts.dmSans(
-                //                   fontSize: 16,
-                //                   color: const Color(0xffD0D0D0),
-                //                 ),
-                //               ),
-                //             ],
-                //           )
-                //         ],
-                //       ),
-                //     ),
-                //   ),
-                // )
               ],
             ),
             3.heightBox,
@@ -282,7 +232,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        'Volvo FMX...',
+                        context.watch<GetUserInfo>().vehicleName,
                         style: GoogleFonts.dmSans(
                           fontSize: 16,
                           color: const Color(0xffD0D0D0),
@@ -291,44 +241,24 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                   7.widthBox,
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(111),
-                      color: const Color(0xff32A5D7).withOpacity(0.08),
-                    ),
-                    height: 40,
-                    width: 104,
-                    child: Center(
-                      child: Text(
-                        'Vacation',
-                        style:
-                            GoogleFonts.dmSans(color: const Color(0xff32A5D7)),
-                      ),
-                    ),
-                  ),
+                  // Container(
+                  //   decoration: BoxDecoration(
+                  //     borderRadius: BorderRadius.circular(111),
+                  //     color: const Color(0xff32A5D7).withOpacity(0.08),
+                  //   ),
+                  //   height: 40,
+                  //   width: 104,
+                  //   child: Center(
+                  //     child: Text(
+                  //       'Vacation',
+                  //       style:
+                  //           GoogleFonts.dmSans(color: const Color(0xff32A5D7)),
+                  //     ),
+                  //   ),
+                  // ),
                 ],
               ),
             ),
-            // Padding(
-            //   padding:
-            //       const EdgeInsets.symmetric(horizontal: 12.0, vertical: 10),
-            //   child: Row(
-            //     children: [
-            //       Text(
-            //         'Overview',
-            //         style: GoogleFonts.dmSans(
-            //             fontSize: 14, color: const Color(0xffD0D0D0)),
-            //       ),
-            //       16.widthBox,
-            //       Text(
-            //         'Productivity',
-            //         style: GoogleFonts.dmSans(
-            //             fontSize: 14,
-            //             color: const Color(0xffD0D0D0).withOpacity(0.46)),
-            //       )
-            //     ],
-            //   ),
-            // ),
             Row(
               children: [
                 Container(
@@ -351,76 +281,6 @@ class HomeScreen extends StatelessWidget {
                 ),
               ],
             ),
-        //    16.heightBox,
-            // Container(
-            //   width: context.width,
-            //   height: 72,
-            //   decoration: BoxDecoration(
-            //     borderRadius: BorderRadius.circular(12),
-            //     color: const Color(0xff202329),
-            //   ),
-            //   child: Padding(
-            //     padding: const EdgeInsets.all(16.0),
-            //     child: Column(
-            //       children: [
-            //         Row(
-            //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //           children: [
-            //             Text(
-            //               'Trips progress',
-            //               style: GoogleFonts.dmSans(
-            //                 fontSize: 14,
-            //                 color: const Color(0xffD0D0D0),
-            //               ),
-            //             ),
-            //             Row(
-            //               children: [
-            //                 Text(
-            //                   '33%',
-            //                   style: GoogleFonts.dmSans(
-            //                     fontSize: 14,
-            //                     color: const Color(0xffD0D0D0),
-            //                   ),
-            //                 ),
-            //                 2.widthBox,
-            //                 Image.asset('assets/images/Amount.png'),
-            //                 2.widthBox,
-            //                 Text(
-            //                   '100%',
-            //                   style: GoogleFonts.dmSans(
-            //                       fontSize: 12,
-            //                       color: const Color(0xffFCFCFC)
-            //                           .withOpacity(0.46)),
-            //                 ),
-            //               ],
-            //             )
-            //           ],
-            //         ),
-            //         10.heightBox,
-            //         Stack(
-            //           children: [
-            //             Container(
-            //               height: 12,
-            //               width: context.width - 132,
-            //               decoration: BoxDecoration(
-            //                 color: const Color(0xff2551EB),
-            //                 borderRadius: BorderRadius.circular(30),
-            //               ),
-            //             ),
-            //             Container(
-            //               height: 12,
-            //               width: context.width - 32,
-            //               decoration: BoxDecoration(
-            //                 color: const Color(0xffFCFCFC).withOpacity(0.08),
-            //                 borderRadius: BorderRadius.circular(30),
-            //               ),
-            //             ),
-            //           ],
-            //         ),
-            //       ],
-            //     ),
-            //   ),
-            // ),
             16.heightBox,
             Row(
               children: [
@@ -502,7 +362,7 @@ class HomeScreen extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
-                              'My Settlement',
+                              'My IMC History',
                               style: GoogleFonts.dmSans(
                                 fontSize: 14,
                                 color: const Color(0xffD0D0D0),
