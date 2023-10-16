@@ -178,7 +178,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        '5263',
+                        context.watch<GetUserInfo>().truck_id.toString(),
                         style: GoogleFonts.dmSans(
                           fontSize: 16,
                           color: const Color(0xffD0D0D0),
@@ -205,7 +205,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        '5263',
+                        context.watch<GetUserInfo>().trailer_name.toString(),
                         style: GoogleFonts.dmSans(
                           fontSize: 16,
                           color: const Color(0xffD0D0D0),
