@@ -268,13 +268,11 @@ class HomeScreen extends StatelessWidget {
                   color: const Color(0xffFCFCFC).withOpacity(0.08),
                 ),
                 Container(
-                  //2551EB
                   width: 60,
                   height: 3,
                   color: const Color(0xff2551EB),
                 ),
                 Container(
-                  //2551EB
                   width: context.width - 72,
                   height: 2,
                   color: const Color(0xffFCFCFC).withOpacity(0.08),

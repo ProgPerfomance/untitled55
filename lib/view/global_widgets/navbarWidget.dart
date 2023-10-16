@@ -11,9 +11,10 @@ class NavBarWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 5.0),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 3.0, right: 2.0),
+            padding: const EdgeInsets.only(left: 3.0, right: 3.0),
             child: Container(
               height: 55,
               width: context.width - 83,
