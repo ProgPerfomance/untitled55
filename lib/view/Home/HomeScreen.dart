@@ -178,7 +178,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        context.watch<GetUserInfo>().truck_id.toString(),
+                        context.watch<GetUserInfo>().truck_name.toString(),
                         style: GoogleFonts.dmSans(
                           fontSize: 16,
                           color: const Color(0xffD0D0D0),

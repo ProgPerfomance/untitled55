@@ -26,7 +26,7 @@ class GetUserInfo extends ChangeNotifier {
     print('token:' + token);
     final response = await dio.get('https://stage.tgateway.vohha.com/mobile/driver/profile',
     options: Options(headers: {
-      "Authorization": "Bearer ${token}",
+      "Authorization": "Bearer $token",
     }));
 print(response.data);
  name = response.data['name'];
@@ -37,7 +37,7 @@ print(response.data);
   trailer_id = response.data['trailer']['id'];
   trailer_name = response.data['trailer']['name'];
   truck_id = response.data['truck']['id'];
-  truck_name = response.data['truck'];
+  truck_name = response.data['truck']['name'];
   avatarUrl = response.data['avatarUrl'];
    notifyListeners();
   }
